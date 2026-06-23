@@ -1,0 +1,119 @@
+[
+  {
+
+    "name": "Dress",
+    "description": "Elegant slim-fit slip dress.",
+    "price": { "$numberInt": "20" },
+    "currency": "USD",
+    "category": "Trousers",
+    "size": ["SM", "S"],
+    "color": ["Black"],
+    "materials": ["Cotton", "Polyester"],
+    "fit": "Slim",
+    "tags": ["trending", "sale"],
+    "subcategory": "Slip Dress",
+    "audience": ["Women"],
+    "images": [
+      "https://www.lerevecraze.com/wp-content/uploads/2025/02/9032467e-48e5-4833-8e5e-244c63ae67c0-300x400.jpg",
+      "https://www.lerevecraze.com/wp-content/uploads/2025/03/7ee0b3ed-2423-48de-9770-d53648fda6c0-300x400.jpgg"
+    ],
+    "featuredImageIndex": { "$numberInt": "0" },
+    "isTrending": true,
+    "isLimitedEdition": true,
+    "isOnSale": false,
+    "reviews": [],
+    "id": "product-1763316622246",
+    "slug": "dress",
+    "rating": { "$numberInt": "0" },
+    "reviews_count": { "$numberInt": "0" },
+    "featured_image": "https://www.lerevecraze.com/wp-content/uploads/2025/02/9032467e-48e5-4833-8e5e-244c63ae67c0-300x400.jpg"
+  },
+  {
+
+    "name": "Satin Slip Dress",
+    "description": "Soft satin slip dress perfect for evening outings.",
+    "price": { "$numberInt": "450" },
+    "currency": "USD",
+    "category": "Dresses",
+    "size": ["S", "M", "L"],
+    "color": ["Champagne"],
+    "materials": ["Satin", "Polyester"],
+    "fit": "Regular",
+    "tags": ["new", "party"],
+    "subcategory": "Slip Dress",
+    "audience": ["Women"],
+    "images": [
+      "https://www.lerevecraze.com/wp-content/uploads/2024/12/f0047881-5384-4eaf-88f6-409db5976123-300x400.jpg",
+      "https://www.lerevecraze.com/wp-content/uploads/2025/02/9032467e-48e5-4833-8e5e-244c63ae67c0-300x400.jpg"
+    ],
+    "featuredImageIndex": { "$numberInt": "0" },
+    "isTrending": true,
+    "isLimitedEdition": false,
+    "isOnSale": true,
+    "reviews": [],
+    "id": "product-1763316622247",
+    "slug": "satin-slip-dress",
+    "rating": { "$numberInt": "5" },
+    "reviews_count": { "$numberInt": "12" },
+    "featured_image": "https://www.lerevecraze.com/wp-content/uploads/2025/03/7ee0b3ed-2423-48de-9770-d53648fda6c0-300x400.jpg"
+  },
+
+  {
+
+    "name": "Black Slim Trousers",
+    "description": "Classic black slim-fit trousers for daily wear.",
+    "price": { "$numberInt": "300" },
+    "currency": "USD",
+    "category": "Trousers",
+    "size": ["S", "M", "L", "XL"],
+    "color": ["Black"],
+    "materials": ["Cotton", "Elastane"],
+    "fit": "Slim",
+    "tags": ["workwear", "basic"],
+    "subcategory": "Formal Trousers",
+    "audience": ["Women"],
+    "images": [
+      "https://www.lerevecraze.com/wp-content/uploads/2025/11/233033ae-258c-4e38-9c6f-22ca77402786.jpg",
+      "https://www.lerevecraze.com/wp-content/uploads/2025/11/d0c60034-41b4-4c15-a5e3-d6fbca37c511-300x400.jpg"
+    ],
+    "featuredImageIndex": { "$numberInt": "0" },
+    "isTrending": false,
+    "isLimitedEdition": false,
+    "isOnSale": true,
+    "reviews": [],
+    "id": "product-1763316622249",
+    "slug": "black-slim-trousers",
+    "rating": { "$numberInt": "4" },
+    "reviews_count": { "$numberInt": "15" },
+    "featured_image": "https://www.lerevecraze.com/wp-content/uploads/2025/10/a5ea36cb-4f7b-466a-88f4-02964a3352d8-300x400.jpg"
+  },
+  {
+
+    "name": "Oversized Hoodie",
+    "description": "Cozy oversized hoodie with front pocket.",
+    "price": { "$numberInt": "25" },
+    "currency": "USD",
+    "category": "Tops",
+    "size": ["M", "L", "XL"],
+    "color": ["Gray"],
+    "materials": ["Cotton", "Polyester"],
+    "fit": "Oversized",
+    "tags": ["casual", "streetwear"],
+    "subcategory": "Hoodie",
+    "audience": ["Women"],
+    "images": [
+      "https://www.lerevecraze.com/wp-content/uploads/2025/11/d0c60034-41b4-4c15-a5e3-d6fbca37c511-300x400.jpg",
+      "https://media.istockphoto.com/id/1440977634/photo/vertical-shot-of-the-beautiful-pink-dress-isolated-on-the-white-background.jpg?b=1&s=612x612&w=0&k=20&c=4_piA2edAWWWQ7VyUl7hWJy32yU4xuLE1-iKvKNm2Fk="
+    ],
+    "featuredImageIndex": { "$numberInt": "0" },
+    "isTrending": true,
+    "isLimitedEdition": false,
+    "isOnSale": false,
+    "reviews": [],
+    "id": "product-1763316622250",
+    "slug": "oversized-hoodie",
+    "rating": { "$numberInt": "5" },
+    "reviews_count": { "$numberInt": "200" },
+    "featured_image": "https://www.lerevecraze.com/wp-content/uploads/2025/10/a5ea36cb-4f7b-466a-88f4-02964a3352d8-300x400.jpg"
+  }
+]

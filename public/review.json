@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Sophia Martinez",
+    "rating": 5,
+    "review": "Absolutely love this dress! The fit is perfect and the fabric feels premium.",
+    "image": "https://i.ibb.co/0qQw8mL/avatar-1.jpg"
+  },
+  {
+    "name": "Emma Johnson",
+    "rating": 4,
+    "review": "Great quality and beautiful color. Just needed a small alteration in length.",
+    "image": "https://i.ibb.co/7vYg3KX/avatar-2.jpg"
+  },
+  {
+    "name": "Olivia Brown",
+    "rating": 5,
+    "review": "Exactly like the photos. Got so many compliments when I wore it.",
+    "image": "https://i.ibb.co/3CkL6qF/avatar-3.jpg"
+  },
+  {
+    "name": "Ava Wilson",
+    "rating": 3,
+    "review": "Nice design, but the material is a bit thinner than I expected.",
+    "image": "https://i.ibb.co/4s7qJq0/avatar-4.jpg"
+  },
+  {
+    "name": "Isabella Davis",
+    "rating": 4,
+    "review": "Color is stunning and it’s very comfortable for all-day wear.",
+    "image": "https://i.ibb.co/YbJcL7N/avatar-5.jpg"
+  }
+]

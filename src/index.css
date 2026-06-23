@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: white;
+}
+.text-col{
+    color: #959391;
+}
+
+.bg-col{
+    background-color: #FFFFFF;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
