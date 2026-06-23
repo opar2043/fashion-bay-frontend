@@ -100,13 +100,13 @@ const Navbar = () => {
     )
   ).sort();
 
-  // Final CATEGORIES array
+  // Final CATEGORIES array - Limited to 8 categories
   const CATEGORIES = [
     { name: "NEW IN", path: categoryPath("NEW IN"), mega: null },
     { name: "Dresses", path: "/dresses", mega: DRESSES_MEGA },
     { name: "Abayas", path: categoryPath("Abayas"), mega: null },
-    // Dynamic categories from product data
-    ...uniqueCategoryNames.map((name) => ({
+    // Dynamic categories from product data - LIMITED to first 2
+    ...uniqueCategoryNames.slice(0, 2).map((name) => ({
       name,
       path: categoryPath(name),
       mega: null,
@@ -114,7 +114,6 @@ const Navbar = () => {
     { name: "Best Sellers", path: categoryPath("Best Sellers"), mega: null },
     { name: "Trousers/skirts", path: categoryPath("Trousers"), mega: null },
     { name: "SALE", path: categoryPath("SALE"), mega: null },
-    { name: "Trending Now", path: categoryPath("Trending Now"), mega: null },
   ];
 
   function logOut() {
