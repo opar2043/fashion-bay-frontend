@@ -7,7 +7,7 @@ Welcome to the Fashion Bay frontend! This is a modern e-commerce platform built 
 Use these credentials to access the admin dashboard:
 
 - **Email:** fashionbay.admin@gmail.com
-- **Password:** 1234567
+- **Password:** 12345678
 
 ## 🌐 Live Link
 
