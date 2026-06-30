@@ -33,6 +33,9 @@ import Overview from './Components/Dashboard/Admin/Overview.jsx';
 import CategoryInner from './Components/Products/CategoryInner/CategoryInner.jsx';
 import Policy from './Components/About/Policy.jsx';
 import Faq from './Components/About/Faq.jsx';
+import About from './Components/About/About.jsx';
+import Subscribers from './Components/Dashboard/Newsletter/Subscribers.jsx';
+import Messages from './Components/Dashboard/Messages/Messages.jsx';
 
 const queryClient = new QueryClient()
 
@@ -77,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: '/faq' ,
         element: <Faq></Faq>
+      },
+      {
+        path: '/about' ,
+        element: <About></About>
       },
       {
         path: '/confirm' ,
@@ -127,6 +134,14 @@ const router = createBrowserRouter([
     {
       path: "/dashboard/orders",
       element: <Order></Order>
+    },
+    {
+      path: "/dashboard/subscribers",
+      element: <Subscribers></Subscribers>
+    },
+    {
+      path: "/dashboard/messages",
+      element: <Messages></Messages>
     },
     {
       path: "/dashboard/all-thing",

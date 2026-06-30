@@ -5,6 +5,7 @@ import MoreDetails from '../About/MoreDetails';
 import HomeProducts from '../Products/HomeProduct';
 import SwiperCard from '../Products/SwiperCard';
 import Review from '../Review/Review';
+import WhyShopWithUs from './WhyShopWithUs';
 import img1 from "../../assets/banner1.jpg"
 import img2 from "../../assets/banner2.jpg"
 import img3 from "../../assets/banner3.jpg"
@@ -26,6 +27,9 @@ const Home = () => {
         <SwiperCard></SwiperCard>
         <Review></Review>
         <MoreDetails></MoreDetails>
+        {/* FAQ hidden on home page */}
+        {/* <Faq></Faq> */}
+        <WhyShopWithUs></WhyShopWithUs>
         {/* <Policy></Policy> */}
     </div>
   )

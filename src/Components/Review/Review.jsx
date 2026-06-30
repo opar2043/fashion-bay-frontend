@@ -77,14 +77,74 @@ const ReviewCard = ({ item, index }) => {
 };
 
 
+// Fallback reviews shown when the server has no reviews yet
+const DEFAULT_REVIEWS = [
+  {
+    _id: "default-1",
+    name: "Aisha M.",
+    rating: 5,
+    review:
+      "Absolutely in love with my abaya! The fabric feels premium and the fit is exactly true to size. Will definitely be ordering again.",
+    createdAt: "2026-05-12",
+  },
+  {
+    _id: "default-2",
+    name: "Sophie R.",
+    rating: 5,
+    review:
+      "Fast UK delivery and beautiful packaging. The dress quality is far better than I expected for the price. Highly recommend Fashion Bay!",
+    createdAt: "2026-04-28",
+  },
+  {
+    _id: "default-3",
+    name: "Hannah L.",
+    rating: 4,
+    review:
+      "Lovely co-ord set, super comfortable and stylish. Sizing ran slightly large for me but customer service helped me sort an exchange quickly.",
+    createdAt: "2026-04-10",
+  },
+  {
+    _id: "default-4",
+    name: "Maryam K.",
+    rating: 5,
+    review:
+      "These trousers have become my everyday go-to. The drape is gorgeous and they hold their shape all day. Crafted in silence, worn loud indeed!",
+    createdAt: "2026-03-22",
+  },
+  {
+    _id: "default-5",
+    name: "Emily T.",
+    rating: 5,
+    review:
+      "Bought a blazer for work and got so many compliments. Elegant, well-tailored and arrived earlier than expected. Five stars.",
+    createdAt: "2026-03-05",
+  },
+  {
+    _id: "default-6",
+    name: "Zara N.",
+    rating: 4,
+    review:
+      "Great quality fabrics and timeless designs. The best sellers section is genuinely worth it — my outerwear piece is a wardrobe staple now.",
+    createdAt: "2026-02-18",
+  },
+];
+
 const Review = () => {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState(DEFAULT_REVIEWS);
 
   // Fetch reviews
   useEffect(() => {
     fetch("https://fashion-bay-server.vercel.app/reviews")
-      .then(res => res.json())
-      .then(data => setReviews(data));
+      .then((res) => res.json())
+      .then((data) => {
+        // Only replace the fallback if the server actually returns reviews
+        if (Array.isArray(data) && data.length > 0) {
+          setReviews(data);
+        }
+      })
+      .catch(() => {
+        // Keep the default reviews on network error
+      });
   }, []);
 
   return (

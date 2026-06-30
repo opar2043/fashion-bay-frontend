@@ -15,6 +15,18 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef();
 
+  // Sends admins/owners straight to the dashboard, everyone else home.
+  const redirectByRole = async (email) => {
+    try {
+      const res = await axiosSecure.get("/users");
+      const me = (res.data || []).find((u) => u.email === email);
+      const isAdmin = me?.role === "admin" || me?.role === "owner";
+      navigate(isAdmin ? "/dashboard" : "/");
+    } catch {
+      navigate("/");
+    }
+  };
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,9 +34,9 @@ const Login = () => {
     const password = form.password.value;
 
     handleLogin(email, password)
-      .then(() => {
+      .then(async () => {
         toast.success("Logged in successfully!");
-        navigate("/");
+        await redirectByRole(email);
       })
       .catch((error) => {
         Swal.fire({
@@ -62,9 +74,9 @@ const Login = () => {
           role: "customer",
         };
 
-        axiosSecure.post("/users", userInfo).then(() => {
+        axiosSecure.post("/users", userInfo).then(async () => {
           toast.success("Signed in with Google!");
-          navigate("/");
+          await redirectByRole(res.user.email);
         });
       })
       .catch((err) => {

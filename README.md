@@ -75,11 +75,28 @@ src/
 - **Product Catalog** - Browse and search fashion items
 - **Shopping Cart** - Add/remove items from cart
 - **User Authentication** - Sign up and login with Firebase
+- **Role-Based Redirect** - Admins land on the dashboard after login, customers on the store
 - **Admin Dashboard** - Manage products, orders, and users
-- **Order Management** - Track and manage orders
+- **Order Status Workflow** - Update orders as Confirmed → Shipped → Delivered → Cancelled
+- **Analytics Overview** - Revenue, average order value, 7-day revenue trend, order-status breakdown & recent orders
+- **Newsletter Subscriptions** - Footer signup with a dashboard subscribers list (CSV export)
+- **Contact Inbox** - Contact messages saved to a dashboard inbox (read / unread / delete)
 - **Customer Reviews** - Read and submit product reviews
 - **Wishlist** - Save favorite items
-- **Responsive Design** - Works on all devices
+- **About & FAQ Pages** - Brand story and frequently asked questions
+- **Responsive Design** - Optimized for mobile and desktop
+
+## 🆕 Recent Upgrade Highlights
+
+- A redesigned, e-commerce-grade **admin dashboard** (sidebar + analytics) using the
+  brand palette — see [`DESIGN.md`](../DESIGN.md).
+- Three full-stack features (Newsletter, Contact Inbox, Order Status) spanning the
+  frontend, the Express/Mongo backend, and dedicated dashboard routes.
+- A redesigned multi-column **footer** with newsletter signup and a polished **About** page.
+- An **FAQ** section added to the bottom of the home page.
+
+> Full visual language (colours, typography, components) is documented in
+> [`DESIGN.md`](../DESIGN.md) at the repository root.
 
 ## 🛠️ Technologies Used
 

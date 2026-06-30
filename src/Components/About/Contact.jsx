@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FiPhone, FiMapPin, FiMail } from "react-icons/fi";
 import Swal from "sweetalert2";
+import useAxios from "../Hooks/useAxios";
 
 /* ================== ANIMATIONS ================== */
 const container = {
@@ -60,6 +61,8 @@ async function sendContactEmail(body) {
 /* ================== COMPONENT ================== */
 
 const Contact = () => {
+  const axiosSecure = useAxios();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -69,6 +72,11 @@ const Contact = () => {
     const email = formData.get("email");
     const mobile = formData.get("mobile");
     const messageText = formData.get("message");
+
+    // Save the enquiry to the dashboard inbox (non-blocking).
+    axiosSecure
+      .post("/messages", { name, email, mobile, message: messageText })
+      .catch(() => {});
 
     const formattedMessage = buildContactMessage({
       name,

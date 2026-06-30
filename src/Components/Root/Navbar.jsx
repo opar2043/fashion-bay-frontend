@@ -8,9 +8,7 @@ import {
   FiUser,
   FiShoppingBag,
   FiChevronDown,
-  FiDatabase,
   FiLogOut,
-  FiHeart,
 } from "react-icons/fi";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
@@ -79,8 +77,9 @@ const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [products] = useProducts();
   const { handleLogout, user } = useAuth();
+  const { admin } = useAdmin();
   const navigate = useNavigate();
-
+  console.log(user);
   // Build unique categories - normalize "Trousers/Skirts" to "Trousers"
   const uniqueCategoryNames = Array.from(
     new Set(
@@ -104,6 +103,7 @@ const Navbar = () => {
   const CATEGORIES = [
     { name: "NEW IN", path: categoryPath("NEW IN"), mega: null },
     { name: "Dresses", path: "/dresses", mega: DRESSES_MEGA },
+
     { name: "Abayas", path: categoryPath("Abayas"), mega: null },
     // Dynamic categories from product data - LIMITED to first 2
     ...uniqueCategoryNames.slice(0, 2).map((name) => ({
@@ -114,6 +114,10 @@ const Navbar = () => {
     { name: "Best Sellers", path: categoryPath("Best Sellers"), mega: null },
     { name: "Trousers/skirts", path: categoryPath("Trousers"), mega: null },
     { name: "SALE", path: categoryPath("SALE"), mega: null },
+    // Always-visible static links
+    { name: "About", path: "/about", mega: null },
+    // Dashboard link only for admins
+    ...(admin ? [{ name: "Dashboard", path: "/dashboard", mega: null }] : []),
   ];
 
   function logOut() {
@@ -126,7 +130,6 @@ const Navbar = () => {
   }
 
 
-  const { admin } = useAdmin();
   // console.log({admin});
   // console.log({user});
   return (
@@ -176,7 +179,7 @@ const Navbar = () => {
                 className="rounded-full w-9 h-9 md:w-12 md:h-12"
               />
               <span className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-sm md:text-2xl">
-                Fashion Bay
+                Fashion Bay {admin ? "(Admin)" : "na"}
               </span>
             </Link>
           </div>
@@ -391,21 +394,24 @@ const Navbar = () => {
               })}
             </div>
 
-            {/* Dashboard + login/logout inside drawer */}
-            <div className="py-2 border-t border-slate-200 mt-2 space-y-3">
-              {
-                admin && (
-                  <Link
-                    to="/dashboard"
-                    className="flex items-center gap-2 font-semibold"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <FiDatabase size={20} color={ICON_COLOR} />
-                    Dashboard
-                  </Link>
-                )
-              }
+            {/* Company links (mobile) */}
+            <div className="py-2 border-t border-slate-200 mt-2 space-y-1">
+              {[
+                { label: "Contact", to: "/contact" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-2 font-semibold text-slate-900 hover:text-rose-500"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
 
+            {/* login/logout inside drawer (Dashboard now lives in the nav list) */}
+            <div className="py-2 border-t border-slate-200 mt-2 space-y-3">
               {user ? (
                 <button
                   onClick={() => {

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import useOrder from "../../Hooks/useOrder";
+import useAxios from "../../Hooks/useAxios";
+import { toast } from "react-toastify";
+
+const STATUS_OPTIONS = ["confirmed", "shipped", "delivered", "cancelled"];
 
 const formatDate = (iso) => {
   if (!iso) return "N/A";
@@ -13,21 +17,42 @@ const statusClasses = (status) => {
   switch ((status || "").toLowerCase()) {
     case "paid":
     case "completed":
+    case "delivered":
       return "bg-emerald-50 text-emerald-700 border-emerald-100";
+    case "shipped":
+      return "bg-sky-50 text-sky-700 border-sky-100";
     case "cancelled":
     case "canceled":
       return "bg-rose-50 text-rose-700 border-rose-100";
     default:
-      return "bg-amber-50 text-amber-700 border-amber-100"; // pending / default
+      return "bg-amber-50 text-amber-700 border-amber-100"; // confirmed / pending / default
   }
 };
 
 const Order = () => {
   const [orders, refetch, isLoading] = useOrder();
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const axiosSecure = useAxios();
+  const [updatingId, setUpdatingId] = useState(null);
 
   const openModal = (order) => setSelectedOrder(order);
   const closeModal = () => setSelectedOrder(null);
+
+  const updateStatus = (id, status) => {
+    setUpdatingId(id);
+    axiosSecure
+      .patch(`/order/${id}`, { status })
+      .then((res) => {
+        if (res.data?.modifiedCount > 0) {
+          toast.success(`Order marked as ${status}`);
+          refetch();
+        } else {
+          toast.info("Status unchanged");
+        }
+      })
+      .catch(() => toast.error("Could not update status"))
+      .finally(() => setUpdatingId(null));
+  };
 
   return (
     <div className="min-h-screen bg-[#f9f7f4] px-4 py-6 sm:px-6 lg:px-8">
@@ -151,13 +176,29 @@ const Order = () => {
 
                         {/* Actions */}
                         <td className="px-6 py-3 align-middle text-right">
-                          <button
-                            type="button"
-                            onClick={() => openModal(order)}
-                            className="inline-flex items-center rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-1 focus:ring-slate-300"
-                          >
-                            View
-                          </button>
+                          <div className="inline-flex items-center gap-2">
+                            <select
+                              value={(order.status || "confirmed").toLowerCase()}
+                              disabled={updatingId === order._id}
+                              onChange={(e) =>
+                                updateStatus(order._id, e.target.value)
+                              }
+                              className="rounded-md border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-700 outline-none focus:border-slate-400 disabled:opacity-50"
+                            >
+                              {STATUS_OPTIONS.map((s) => (
+                                <option key={s} value={s}>
+                                  {s.charAt(0).toUpperCase() + s.slice(1)}
+                                </option>
+                              ))}
+                            </select>
+                            <button
+                              type="button"
+                              onClick={() => openModal(order)}
+                              className="inline-flex items-center rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-1 focus:ring-slate-300"
+                            >
+                              View
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     );
