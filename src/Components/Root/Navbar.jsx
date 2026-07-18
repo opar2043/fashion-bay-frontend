@@ -27,7 +27,7 @@ const DRESSES_MEGA = {
   columns: [
     {
       title: "Occasion",
-      items: ["Abayas", "Co Ords", "Best Sellers", "Limited Edition"],
+      items: [ "Co Ords", "Best Sellers", "Limited Edition"],
     },
     {
       title: "Color",
@@ -104,7 +104,6 @@ const Navbar = () => {
     { name: "NEW IN", path: categoryPath("NEW IN"), mega: null },
     { name: "Dresses", path: "/dresses", mega: DRESSES_MEGA },
 
-    { name: "Abayas", path: categoryPath("Abayas"), mega: null },
     // Dynamic categories from product data - LIMITED to first 2
     ...uniqueCategoryNames.slice(0, 2).map((name) => ({
       name,
@@ -192,13 +191,16 @@ const Navbar = () => {
                 <FiSearch size={22} color={ICON_COLOR} />
               </Link>
 
-              {
-                admin && (
-                  <Link to="/dashboard" aria-label="Dashboard" className="p-2">
-                    <FiUser size={22} color={ICON_COLOR} />
-                  </Link>
-                )
-              }
+              {admin && (
+                <Link
+                  to="/dashboard"
+                  aria-label="Dashboard"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-slate-900 font-semibold text-xs hover:bg-black/5 transition-all duration-200"
+                >
+                  <FiUser size={18} color={ICON_COLOR} />
+                  Dashboard
+                </Link>
+              )}
 
               {/* Cart button (opens sidebar) */}
               <button
@@ -245,23 +247,24 @@ const Navbar = () => {
               <FiSearch size={20} color={ICON_COLOR} />
             </Link>
 
-            {admin && (
+            {admin ? (
               <Link
                 to="/dashboard"
                 aria-label="Dashboard"
+                className="flex items-center gap-1 px-2 py-1.5 rounded-lg text-slate-900 font-semibold text-[11px] hover:bg-black/5"
+              >
+                <FiUser size={18} color={ICON_COLOR} />
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                aria-label="Account"
                 className="p-2 rounded-full hover:bg-black/5"
               >
                 <FiUser size={20} color={ICON_COLOR} />
               </Link>
-            ) || (
-                <Link
-                  to="/login"
-                  aria-label="Account"
-                  className="p-2 rounded-full hover:bg-black/5"
-                >
-                  <FiUser size={20} color={ICON_COLOR} />
-                </Link>
-              )}
+            )}
 
             <button
               type="button"
