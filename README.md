@@ -12,6 +12,8 @@ Use these credentials to access the admin dashboard:
 ## 🌐 Live Link
 
 Visit the live application here: [https://fashion-bay-pro.netlify.app/](https://fashion-bay-pro.netlify.app/)
+
+
 <img width="1345" height="636" alt="image" src="https://github.com/user-attachments/assets/6d4e0751-ffaf-4692-b865-3bb802fa3733" />
 
 ## 🚀 Quick Start
